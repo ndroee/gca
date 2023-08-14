@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>846</width>
+    <height>879</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>821</width>
+      <height>831</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QGroupBox" name="mainGroup">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>140</y>
+       <width>801</width>
+       <height>661</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string/>
+     </property>
+     <widget class="QGroupBox" name="groupBox_5">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>280</y>
+        <width>350</width>
+        <height>341</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Karakter Cassiterite</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QGroupBox" name="groupBox_6">
+         <property name="title">
+          <string>Bentuk Butir</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="2" column="1">
+           <widget class="QCheckBox" name="cbSR">
+            <property name="text">
+             <string>Sub Rounded</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QCheckBox" name="cbSA">
+            <property name="text">
+             <string>Sub Angular</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QCheckBox" name="cbA">
+            <property name="text">
+             <string>Angular</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QCheckBox" name="cbR">
+            <property name="text">
+             <string>Rounded</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QCheckBox" name="cbWR">
+            <property name="text">
+             <string>Well Rounded</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QCheckBox" name="cbSASR">
+            <property name="text">
+             <string>Sub Angular - Sub Rounded</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_7">
+         <property name="title">
+          <string>Warna</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QRadioButton" name="rbCH">
+            <property name="text">
+             <string>Cokelat Kehitaman</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="rbCM">
+            <property name="text">
+             <string>Cokelat Kemerahan</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="rbCK">
+            <property name="text">
+             <string>Cokelat Kekuningan</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="rbC">
+            <property name="text">
+             <string>Kecokelatan</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnOk">
+         <property name="text">
+          <string>OK</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_3">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>30</y>
+        <width>243</width>
+        <height>251</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Berat Sampel (gr)</string>
+      </property>
+      <layout class="QFormLayout" name="formLayout_2">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_7">
+         <property name="text">
+          <string>#+48</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="txtBrtP48"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_8">
+         <property name="text">
+          <string>#+100</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="txtBrtP100"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_9">
+         <property name="text">
+          <string>#-100</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="txtBrtM100"/>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_10">
+         <property name="text">
+          <string>Berat Total</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="txtTotBrt">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_4">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>280</y>
+        <width>341</width>
+        <height>341</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Analisa Multi Mineral</string>
+      </property>
+      <widget class="QScrollArea" name="scrollArea">
+       <property name="geometry">
+        <rect>
+         <x>15</x>
+         <y>109</y>
+         <width>291</width>
+         <height>221</height>
+        </rect>
+       </property>
+       <property name="widgetResizable">
+        <bool>true</bool>
+       </property>
+       <widget class="QWidget" name="scrollAreaWidgetContents">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>272</width>
+          <height>512</height>
+         </rect>
+        </property>
+        <layout class="QFormLayout" name="formLayout_5">
+         <item row="0" column="0">
+          <widget class="QComboBox" name="cbM1"/>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="leM01"/>
+         </item>
+         <item row="1" column="0">
+          <widget class="QComboBox" name="cbM2"/>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="leM02"/>
+         </item>
+         <item row="2" column="0">
+          <widget class="QComboBox" name="cbM3"/>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="leM03"/>
+         </item>
+         <item row="4" column="0">
+          <widget class="QComboBox" name="cbM4"/>
+         </item>
+         <item row="4" column="1">
+          <widget class="QLineEdit" name="leM04"/>
+         </item>
+         <item row="5" column="0">
+          <widget class="QComboBox" name="cbM5"/>
+         </item>
+         <item row="5" column="1">
+          <widget class="QLineEdit" name="leM05"/>
+         </item>
+         <item row="6" column="1">
+          <widget class="QLineEdit" name="leM06"/>
+         </item>
+         <item row="7" column="0">
+          <widget class="QComboBox" name="cbM7"/>
+         </item>
+         <item row="7" column="1">
+          <widget class="QLineEdit" name="leM07"/>
+         </item>
+         <item row="8" column="0">
+          <widget class="QComboBox" name="cbM8"/>
+         </item>
+         <item row="8" column="1">
+          <widget class="QLineEdit" name="leM08"/>
+         </item>
+         <item row="9" column="0">
+          <widget class="QComboBox" name="cbM9"/>
+         </item>
+         <item row="9" column="1">
+          <widget class="QLineEdit" name="leM09"/>
+         </item>
+         <item row="10" column="0">
+          <widget class="QComboBox" name="cbM10"/>
+         </item>
+         <item row="10" column="1">
+          <widget class="QLineEdit" name="leM10"/>
+         </item>
+         <item row="11" column="0">
+          <widget class="QComboBox" name="cbM11"/>
+         </item>
+         <item row="11" column="1">
+          <widget class="QLineEdit" name="leM11"/>
+         </item>
+         <item row="12" column="0">
+          <widget class="QComboBox" name="cbM12"/>
+         </item>
+         <item row="12" column="1">
+          <widget class="QLineEdit" name="leM12"/>
+         </item>
+         <item row="13" column="0">
+          <widget class="QComboBox" name="cbM13"/>
+         </item>
+         <item row="13" column="1">
+          <widget class="QLineEdit" name="leM13"/>
+         </item>
+         <item row="14" column="0">
+          <widget class="QComboBox" name="cbM14"/>
+         </item>
+         <item row="14" column="1">
+          <widget class="QLineEdit" name="leM14"/>
+         </item>
+         <item row="15" column="0">
+          <widget class="QComboBox" name="cbM15"/>
+         </item>
+         <item row="15" column="1">
+          <widget class="QLineEdit" name="leM15"/>
+         </item>
+         <item row="16" column="0">
+          <widget class="QComboBox" name="cbM16"/>
+         </item>
+         <item row="16" column="1">
+          <widget class="QLineEdit" name="leM16"/>
+         </item>
+         <item row="17" column="0">
+          <widget class="QComboBox" name="cbM17"/>
+         </item>
+         <item row="17" column="1">
+          <widget class="QLineEdit" name="leM17"/>
+         </item>
+         <item row="18" column="0">
+          <widget class="QComboBox" name="cbM18"/>
+         </item>
+         <item row="18" column="1">
+          <widget class="QLineEdit" name="leM18"/>
+         </item>
+         <item row="19" column="0">
+          <widget class="QComboBox" name="cbM19"/>
+         </item>
+         <item row="19" column="1">
+          <widget class="QLineEdit" name="leM19"/>
+         </item>
+         <item row="6" column="0">
+          <widget class="QComboBox" name="cbM6"/>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QLabel" name="label_11">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>80</y>
+         <width>44</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Mineral</string>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::AutoText</enum>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_12">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>80</y>
+         <width>75</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Jumlah Butir</string>
+       </property>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_mesh">
+       <property name="geometry">
+        <rect>
+         <x>19</x>
+         <y>20</y>
+         <width>193</width>
+         <height>50</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Mesh</string>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QRadioButton" name="rbP48">
+          <property name="text">
+           <string>#+48</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="rbP100">
+          <property name="text">
+           <string>#+100</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="rbM100">
+          <property name="text">
+           <string>#-100</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>30</y>
+        <width>341</width>
+        <height>251</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Informasi Sampel</string>
+      </property>
+      <layout class="QFormLayout" name="formLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Asal Conto</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="txtAsal">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Lokasi</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="txtLok">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>Site ID</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="txtSiteID">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>Lapis</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="txtLapis">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>Bulan/Tahun</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QLineEdit" name="txtBulan">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_6">
+         <property name="text">
+          <string>Berat Timbang</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QLineEdit" name="txtBrtTbg">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QPushButton" name="btnPrev">
+         <property name="text">
+          <string>Prev</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QPushButton" name="btnNext">
+         <property name="text">
+          <string>Next</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_8">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>191</width>
+       <height>121</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Filter</string>
+     </property>
+     <layout class="QFormLayout" name="formLayout_3">
+      <item row="0" column="0">
+       <widget class="QLabel" name="label_13">
+        <property name="text">
+         <string>Dari</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QDateEdit" name="tglDari">
+        <property name="calendarPopup">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_14">
+        <property name="text">
+         <string>Sampai</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QPushButton" name="pushButton">
+        <property name="text">
+         <string>OK</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QDateEdit" name="tglSampai">
+        <property name="dateTime">
+         <datetime>
+          <hour>0</hour>
+          <minute>0</minute>
+          <second>0</second>
+          <year>2000</year>
+          <month>4</month>
+          <day>1</day>
+         </datetime>
+        </property>
+        <property name="calendarPopup">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>846</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
