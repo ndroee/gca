@@ -341,7 +341,6 @@ class Ui_MainWindow(object):
         self.rbP100.toggled.connect(self.checkRadioButtons)
         self.rbM100.toggled.connect(self.checkRadioButtons)
 
-
         self.scrollArea.setEnabled(False)
 
 

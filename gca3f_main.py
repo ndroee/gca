@@ -16,22 +16,25 @@ class MainWindow (QMainWindow):
         self.db_connection = None
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        self.database_connection()
+        self.setup_initial_records()
+        self.setup_connection()
 
-        self.records = []  # Inisialisasi records sebagai list kosong
-        self.current_record_index = 0  # Inisialisasi current_record_index dengan nilai yang valid
-        self.load_record(self.current_record_index)
-
+    def setup_connection(self):
         self.ui.txtBrtP48.textChanged.connect(self.updateTotalBerat)
         self.ui.txtBrtP100.textChanged.connect(self.updateTotalBerat)
         self.ui.txtBrtM100.textChanged.connect(self.updateTotalBerat)
-        # Hubungkan tombol OK dengan fungsi filter_records
         self.ui.pushButton.clicked.connect(self.filter_records)
-
         self.ui.rbP48.toggled.connect(self.checkRadioButtons)
         self.ui.rbP100.toggled.connect(self.checkRadioButtons)
         self.ui.rbM100.toggled.connect(self.checkRadioButtons)
-
         self.ui.btnOk.clicked.connect(self.printToConsole)
+
+
+    def setup_initial_records(self):
+        self.records = []  # Inisialisasi records sebagai list kosong
+        self.current_record_index = 0  # Inisialisasi current_record_index dengan nilai yang valid
+        self.load_record(self.current_record_index)
 
         today = QDate.currentDate()
         one_month_ago = today.addMonths(-1)
@@ -40,7 +43,18 @@ class MainWindow (QMainWindow):
 
         self.ui.scrollArea.setEnabled(False)
 
+
+        # Set up button connections
+        self.ui.btnPrev.clicked.connect(self.load_previous_record)
+        self.ui.btnNext.clicked.connect(self.load_next_record)
+
+        # Load the initial record
+        self.current_record_index = 0
+        self.load_record(self.current_record_index)
+
+
         # Create a connection to the local SQL Server database
+    def database_connection(self):
         server_name = 'HPZ6PKPEKSPL1\LOCALSQL'  # Change this to your SQL Server's hostname or IP
         database_name = 'GCA'  # Change this to your database name
         username = 'sa'  # Change this to your SQL Server username
@@ -57,13 +71,6 @@ class MainWindow (QMainWindow):
         self.db_connection = pyodbc.connect(conn_str)
         self.db_cursor = self.db_connection.cursor()
 
-        # Set up button connections
-        self.ui.btnPrev.clicked.connect(self.load_previous_record)
-        self.ui.btnNext.clicked.connect(self.load_next_record)
-
-        # Load the initial record
-        self.current_record_index = 0
-        self.load_record(self.current_record_index)
 
     def updateTotalBerat(self):
         try:
@@ -137,6 +144,7 @@ class MainWindow (QMainWindow):
             self.current_record_index += 1
             self.load_record(self.current_record_index)
 
+
     def checkRadioButtons(self):
         # Cek status tombol radio
         rbP48_checked = self.ui.rbP48.isChecked()
@@ -145,6 +153,7 @@ class MainWindow (QMainWindow):
 
         # Aktifkan scrollArea jika salah satu tombol radio terpilih, nonaktifkan jika tidak ada yang terpilih
         self.ui.scrollArea.setEnabled(rbP48_checked or rbP100_checked or rbM100_checked)
+        return rbP48_checked,rbP100_checked,rbM100_checked
 
     def printToConsole(self):
         mineral1 = self.ui.cbM1.currentText()
@@ -152,20 +161,34 @@ class MainWindow (QMainWindow):
         asal = self.ui.txtAsal.text()
         sampleid = self.ui.txtSiteID.text()
         btrM1 = self.ui.leM01.text()
-        angular = self.ui.cbA
-        subangular = self.ui.cbSA
-        rounded = self.ui.cbR
-        wellrounded = self.ui.cbWR
-        subrounded = self.ui.cbSR
-        subangularwellrounded = self.ui.cbSASR
 
-        hasil = f"{sampleid} {mineral1} {btrM1} butir dari {asal}"
-        print("mineral 1", mineral1,btrM1,"butir")
-        print("mineral 2", mineral2)
-        print("asal", asal)
-        print("sample id", sampleid)
-        print(hasil)
-        print()
+        radio_values = self.checkRadioButtons()
+        rbP48_checked, rbP100_checked, rbM100_checked = radio_values
+        if rbP48_checked:
+            print("Radio P48 terpilih.")
+        if rbP100_checked:
+            print("Radio P100 terpilih.")
+        if rbM100_checked:
+            print("Radio M100 terpilih.")
+
+        checkboxes = [
+            ("Angular", self.ui.cbA.isChecked()),
+            ("Sub Angular", self.ui.cbSA.isChecked()),
+            ("Rounded", self.ui.cbR.isChecked()),
+            ("Well Rounded", self.ui.cbWR.isChecked()),
+            ("Sub Rounded", self.ui.cbSR.isChecked()),
+            ("Sub Angular - Sub Rounded", self.ui.cbSASR.isChecked())
+        ]
+        for label, checked in checkboxes:
+            if checked:
+                print(f"Checkbox '{label}' terpilih.")
+
+        print("Mineral 1:", mineral1)
+        print("Mineral 2:", mineral2)
+        print("Asal:", asal)
+        print("Sample ID:", sampleid)
+        print("Jumlah Butir Mineral 1:", btrM1)
+5
 
 
 if __name__ == "__main__":
@@ -173,3 +196,4 @@ if __name__ == "__main__":
     window = MainWindow()
     window.show()
     sys.exit(app.exec())
+
