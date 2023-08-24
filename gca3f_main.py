@@ -20,6 +20,7 @@ class MainWindow (QMainWindow):
         self.setup_initial_records()
         self.setup_connection()
 
+
     def setup_connection(self):
         self.ui.txtBrtP48.textChanged.connect(self.updateTotalBerat)
         self.ui.txtBrtP100.textChanged.connect(self.updateTotalBerat)
@@ -28,6 +29,10 @@ class MainWindow (QMainWindow):
         self.ui.rbP48.toggled.connect(self.checkRadioButtons)
         self.ui.rbP100.toggled.connect(self.checkRadioButtons)
         self.ui.rbM100.toggled.connect(self.checkRadioButtons)
+        self.ui.rbC.toggled.connect(self.warnacass)
+        self.ui.rbCK.toggled.connect(self.warnacass)
+        self.ui.rbCH.toggled.connect(self.warnacass)
+        self.ui.rbCM.toggled.connect(self.warnacass)
         self.ui.btnOk.clicked.connect(self.printToConsole)
 
 
@@ -71,6 +76,13 @@ class MainWindow (QMainWindow):
         self.db_connection = pyodbc.connect(conn_str)
         self.db_cursor = self.db_connection.cursor()
 
+    def warnacass(self):
+        kecokelatan = self.ui.rbC.isChecked()
+        cokelat_kemerahan = self.ui.rbCM.isChecked()
+        cokelat_kehitaman = self.ui.rbCH.isChecked()
+        cokelat_kekuningan = self.ui.rbCK.isChecked()
+
+        return kecokelatan,cokelat_kemerahan,cokelat_kehitaman,cokelat_kekuningan
 
     def updateTotalBerat(self):
         try:
@@ -92,9 +104,10 @@ class MainWindow (QMainWindow):
         if hasattr(self, 'records'):
             records = self.records
 
+
             if 0 <= index < len(records):
                 record = records[index]
-                self.ui.txtSiteID.setText(str(record[2]))
+                self.ui.txtSiteID.setText(str(record[1]))
                 self.ui.txtLapis.setText(str(record[4]))
                 self.ui.txtBrtTbg.setText(str(record[10]))
                 self.ui.txtBulan.setText(str(record[5]))
@@ -159,8 +172,22 @@ class MainWindow (QMainWindow):
         mineral1 = self.ui.cbM1.currentText()
         mineral2 = self.ui.cbM2.currentText()
         asal = self.ui.txtAsal.text()
-        sampleid = self.ui.txtSiteID.text()
+        siteid = self.ui.txtSiteID.text()
         btrM1 = self.ui.leM01.text()
+        btrM2 = self.ui.leM02.text()
+        lapis = self.ui.txtLapis.text()
+
+
+        warna_values = self.warnacass()
+        kecokelatan,cokelat_kemerahan,cokelat_kehitaman,cokelat_kekuningan = warna_values
+        if kecokelatan:
+            print("Kecokelatan")
+        if cokelat_kemerahan:
+            print("Cokelat Kemerahan")
+        if cokelat_kehitaman:
+            print("Cokelat Kehitaman")
+        if cokelat_kekuningan:
+            print("Cokelat Kekuningan")
 
         radio_values = self.checkRadioButtons()
         rbP48_checked, rbP100_checked, rbM100_checked = radio_values
@@ -186,14 +213,38 @@ class MainWindow (QMainWindow):
         print("Mineral 1:", mineral1)
         print("Mineral 2:", mineral2)
         print("Asal:", asal)
-        print("Sample ID:", sampleid)
+        print("Sample ID:", siteid)
         print("Jumlah Butir Mineral 1:", btrM1)
-5
 
+        confirm_dialog = QMessageBox()
+        confirm_dialog.setIcon(QMessageBox.Icon.Question)
+        confirm_dialog.setWindowTitle("Konfirmasi")
+        confirm_dialog.setText("Apakah Anda yakin ingin melanjutkan?")
+        confirm_dialog.setStandardButtons(QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
+        confirm_dialog.setDefaultButton(QMessageBox.StandardButton.No)
+
+        result = confirm_dialog.exec()
+
+        if result == QMessageBox.StandardButton.Yes:
+            # Lanjutkan dengan tindakan setelah konfirmasi
+            sample_id = f"{siteid}-{lapis}"  # Gabungkan SITE_ID dan lapis di sini
+
+            query = (
+                f"INSERT INTO GB_GCA_RESULT (PROJECT, SITE_ID, SAMPLE_ID, LAB_ID, MINERAL, PLUS_48_GRAIN) "
+                f"VALUES ('TIMAH', ?, ?, 'INTERNAL', ?, ?)"
+            )
+
+            try:
+                self.db_cursor.execute(query, (siteid, sample_id, mineral1, btrM1))
+                self.db_connection.commit()
+                print("Data berhasil dimasukkan ke dalam tabel GB_GCA_RESULT.")
+            except Exception as e:
+                print("Error saat memasukkan data:", e)
+        else:
+            print("Tindakan dibatalkan.")
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = MainWindow()
     window.show()
     sys.exit(app.exec())
-
