@@ -4,7 +4,8 @@ from PyQt6.QtWidgets import QMessageBox, QApplication, QMainWindow
 from PyQt6.QtCore import QDate
 import pyodbc
 from PyQt6 import QtCore, QtGui, QtWidgets
-from gca3f_ui import Ui_MainWindow
+from gca3fv3_ui import Ui_MainWindow
+
 
 
 class MainWindow (QMainWindow):
@@ -26,14 +27,16 @@ class MainWindow (QMainWindow):
         self.ui.txtBrtP100.textChanged.connect(self.updateTotalBerat)
         self.ui.txtBrtM100.textChanged.connect(self.updateTotalBerat)
         self.ui.pushButton.clicked.connect(self.filter_records)
-        self.ui.rbP48.toggled.connect(self.checkRadioButtons)
-        self.ui.rbP100.toggled.connect(self.checkRadioButtons)
-        self.ui.rbM100.toggled.connect(self.checkRadioButtons)
         self.ui.rbC.toggled.connect(self.warnacass)
         self.ui.rbCK.toggled.connect(self.warnacass)
         self.ui.rbCH.toggled.connect(self.warnacass)
         self.ui.rbCM.toggled.connect(self.warnacass)
+        self.ui.rbInternal.toggled.connect(self.lab)
+        self.ui.rbEksternal.toggled.connect(self.lab)
         self.ui.btnOk.clicked.connect(self.printToConsole)
+        self.ui.txtBrtP48.textChanged.connect(self.enablingScrollP48)
+        self.ui.txtBrtP100.textChanged.connect(self.enablingScrollP100)
+        self.ui.txtBrtM100.textChanged.connect(self.enablingScrollM100)
 
 
     def setup_initial_records(self):
@@ -41,13 +44,16 @@ class MainWindow (QMainWindow):
         self.current_record_index = 0  # Inisialisasi current_record_index dengan nilai yang valid
         self.load_record(self.current_record_index)
 
+        #set Date
         today = QDate.currentDate()
         one_month_ago = today.addMonths(-1)
         self.ui.tglDari.setDate(one_month_ago)
         self.ui.tglSampai.setDate(today)
 
-        self.ui.scrollArea.setEnabled(False)
-
+        # disabling scroll area
+        self.ui.scrollArea_P48.setEnabled(False)
+        self.ui.scrollArea_P100.setEnabled(False)
+        self.ui.scrollArea_M100.setEnabled(False)
 
         # Set up button connections
         self.ui.btnPrev.clicked.connect(self.load_previous_record)
@@ -75,6 +81,11 @@ class MainWindow (QMainWindow):
 
         self.db_connection = pyodbc.connect(conn_str)
         self.db_cursor = self.db_connection.cursor()
+
+    def lab(self):
+        internal = self.ui.rbInternal.isChecked()
+        eksternal = self.ui.rbEksternal.isChecked()
+        return internal,eksternal
 
     def warnacass(self):
         kecokelatan = self.ui.rbC.isChecked()
@@ -158,18 +169,68 @@ class MainWindow (QMainWindow):
             self.load_record(self.current_record_index)
 
 
-    def checkRadioButtons(self):
-        # Cek status tombol radio
-        rbP48_checked = self.ui.rbP48.isChecked()
-        rbP100_checked = self.ui.rbP100.isChecked()
-        rbM100_checked = self.ui.rbM100.isChecked()
+    def enablingScrollP48(self,text):
+        if text and text != "0":
+            self.ui.scrollArea_P48.setEnabled(True)
+        else:
+            self.ui.scrollArea_P48.setEnabled(False)
 
-        # Aktifkan scrollArea jika salah satu tombol radio terpilih, nonaktifkan jika tidak ada yang terpilih
-        self.ui.scrollArea.setEnabled(rbP48_checked or rbP100_checked or rbM100_checked)
-        return rbP48_checked,rbP100_checked,rbM100_checked
+    def enablingScrollP100(self,text):
+        if text and text != "0":
+            self.ui.scrollArea_P100.setEnabled(True)
+        else:
+            self.ui.scrollArea_P100.setEnabled(False)
+
+    def enablingScrollM100(self,text):
+        if text and text != "0":
+            self.ui.scrollArea_M100.setEnabled(True)
+        else:
+            self.ui.scrollArea_M100.setEnabled(False)
+
+
+
     def format_date_time(date_time):
         return f"{date_time:%Y-%m-%d %H:%M:%S}"
 
+    def mineralValueP48(self):
+        mineral1 = self.ui.cbM1.currentText()
+        mineral2 = self.ui.cbM2.currentText()
+        mineral3 = self.ui.cbM3.currentText()
+        mineral4 = self.ui.cbM4.currentText()
+        mineral5 = self.ui.cbM5.currentText()
+        mineral6 = self.ui.cbM6.currentText()
+        mineral7 = self.ui.cbM7.currentText()
+        mineral8 = self.ui.cbM8.currentText()
+        mineral9 = self.ui.cbM9.currentText()
+        mineral10 = self.ui.cbM10.currentText()
+        mineral11 = self.ui.cbM11.currentText()
+        mineral12 = self.ui.cbM12.currentText()
+        mineral13 = self.ui.cbM13.currentText()
+        mineral14 = self.ui.cbM14.currentText()
+        mineral15 = self.ui.cbM15.currentText()
+        mineral16 = self.ui.cbM16.currentText()
+        mineral17 = self.ui.cbM17.currentText()
+        mineral18 = self.ui.cbM18.currentText()
+        mineral19 = self.ui.cbM19.currentText()
+        butir1 = self.ui.leM01.currentText()
+        butir2 = self.ui.leM02.currentText()
+        butir3 = self.ui.leM03.currentText()
+        butir4 = self.ui.leM04.currentText()
+        butir5 = self.ui.leM05.currentText()
+        butir6 = self.ui.leM06.currentText()
+        butir7 = self.ui.leM07.currentText()
+        butir8 = self.ui.leM08.currentText()
+        butir9 = self.ui.leM09.currentText()
+        butir10 = self.ui.leM10.currentText()
+        butir11 = self.ui.leM11.currentText()
+        butir12 = self.ui.leM12.currentText()
+        butir13 = self.ui.leM13.currentText()
+        butir14 = self.ui.leM14.currentText()
+        butir15 = self.ui.leM15.currentText()
+        butir16 = self.ui.leM16.currentText()
+        butir17 = self.ui.leM17.currentText()
+        butir18 = self.ui.leM18.currentText()
+        butir19 = self.ui.leM19.currentText()
 
 
     def printToConsole(self):
@@ -194,14 +255,6 @@ class MainWindow (QMainWindow):
         if cokelat_kekuningan:
             print("Cokelat Kekuningan")
 
-        radio_values = self.checkRadioButtons()
-        rbP48_checked, rbP100_checked, rbM100_checked = radio_values
-        if rbP48_checked:
-            print("Radio P48 terpilih.")
-        if rbP100_checked:
-            print("Radio P100 terpilih.")
-        if rbM100_checked:
-            print("Radio M100 terpilih.")
 
         checkboxes = [
             ("Angular", self.ui.cbA.isChecked()),
