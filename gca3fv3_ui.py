@@ -607,68 +607,28 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         komponenDouble = [
-            self.txtBrtP48,
-            self.txtBrtP100,
-            self.txtBrtM100
+            self.txtBrtP48,self.txtBrtP100,self.txtBrtM100
             ]
         komponenInt = [
-            self.leM01_M100,
-            self.leM02_M100,
-            self.leM03_M100,
-            self.leM04_M100,
-            self.leM05_M100,
-            self.leM06_M100,
-            self.leM07_M100,
-            self.leM08_M100,
-            self.leM09_M100,
-            self.leM10_M100,
-            self.leM11_M100,
-            self.leM12_M100,
-            self.leM13_M100,
-            self.leM14_M100,
-            self.leM15_M100,
-            self.leM16_M100,
-            self.leM17_M100,
-            self.leM18_M100,
-            self.leM19_M100,
-            self.leM01_P100,
-            self.leM02_P100,
-            self.leM03_P100,
-            self.leM04_P100,
-            self.leM05_P100,
-            self.leM06_P100,
-            self.leM07_P100,
-            self.leM08_P100,
-            self.leM09_P100,
-            self.leM10_P100,
-            self.leM11_P100,
-            self.leM12_P100,
-            self.leM13_P100,
-            self.leM14_P100,
-            self.leM15_P100,
-            self.leM16_P100,
-            self.leM17_P100,
-            self.leM18_P100,
-            self.leM19_P100,
-            self.leM01_P48,
-            self.leM02_P48,
-            self.leM03_P48,
-            self.leM04_P48,
-            self.leM05_P48,
-            self.leM06_P48,
-            self.leM07_P48,
-            self.leM08_P48,
-            self.leM09_P48,
-            self.leM10_P48,
-            self.leM11_P48,
-            self.leM12_P48,
-            self.leM13_P48,
-            self.leM14_P48,
-            self.leM15_P48,
-            self.leM16_P48,
-            self.leM17_P48,
-            self.leM18_P48,
-            self.leM19_P48
+            self.leM01_M100,self.leM02_M100,self.leM03_M100,
+            self.leM04_M100,self.leM05_M100,self.leM06_M100,
+            self.leM07_M100,self.leM08_M100,self.leM09_M100,
+            self.leM10_M100,self.leM11_M100,self.leM12_M100,
+            self.leM13_M100,self.leM14_M100,self.leM15_M100,
+            self.leM16_M100,self.leM17_M100,self.leM18_M100,
+            self.leM19_M100,self.leM01_P100,self.leM02_P100,
+            self.leM03_P100,self.leM04_P100,self.leM05_P100,
+            self.leM06_P100,self.leM07_P100,self.leM08_P100,
+            self.leM09_P100,self.leM10_P100,self.leM11_P100,
+            self.leM12_P100,self.leM13_P100,self.leM14_P100,
+            self.leM15_P100,self.leM16_P100,self.leM17_P100,
+            self.leM18_P100,self.leM19_P100,self.leM01_P48,
+            self.leM02_P48,self.leM03_P48,self.leM04_P48,
+            self.leM05_P48,self.leM06_P48,self.leM07_P48,
+            self.leM08_P48,self.leM09_P48,self.leM10_P48,
+            self.leM11_P48,self.leM12_P48,self.leM13_P48,
+            self.leM14_P48,self.leM15_P48,self.leM16_P48,
+            self.leM17_P48,self.leM18_P48,self.leM19_P48
         ]
         double_validator = QDoubleValidator()
         integer_validator = QIntValidator()
@@ -679,8 +639,44 @@ class Ui_MainWindow(object):
         for komponenint in komponenInt:
             komponenint.setValidator(integer_validator)
 
+        mineral_options = [
+            "CASSITERITE", "MONAZITE", "PYRIT/MARC", "ILMENITE",
+            "ZIRCON", "XENOTIME", "ANATASE", "LIMONITE", "TOPAZ",
+            "TOURMALINE", "SIDERITE", "MAGNETITE", "SPINEL", "OKSIDA BESI",
+            "LP.PASIR", "SLAG", "TERAK", "PSILOMELANE", "Pb", "RUTILE",
+            "MUSCOVITE", "METAL", "LEUCOXENE", "K.KERANG", "HEMATITE",
+            "GARNET", "GALENA", "FELDSPAR", "CORUNDUM", "COLUMBIT",
+            "CHALCOPYRITE", "CALCITE", "BIOTITE", "BARITE",
+            "ALMANDINE", "WOLFRAMITE", "QUARTZ"
+
+        ]
+        combo_boxes = [self.cbM1_P48,	self.cbM1_P100,	self.cbM1_M100,
+                       self.cbM2_P48,	self.cbM2_P100,	self.cbM2_M100,
+                       self.cbM3_P48,	self.cbM3_P100,	self.cbM3_M100,
+                       self.cbM4_P48,	self.cbM4_P100,	self.cbM4_M100,
+                       self.cbM5_P48,	self.cbM5_P100,	self.cbM5_M100,
+                       self.cbM6_P48,	self.cbM6_P100,	self.cbM6_M100,
+                       self.cbM7_P48,	self.cbM7_P100,	self.cbM7_M100,
+                       self.cbM8_P48,	self.cbM8_P100,	self.cbM8_M100,
+                       self.cbM9_P48,	self.cbM9_P100,	self.cbM9_M100,
+                       self.cbM10_P48,	self.cbM10_P100,self.cbM10_M100,
+                       self.cbM11_P48,	self.cbM11_P100,self.cbM11_M100,
+                       self.cbM12_P48,	self.cbM12_P100,self.cbM12_M100,
+                       self.cbM13_P48,	self.cbM13_P100,self.cbM13_M100,
+                       self.cbM14_P48,	self.cbM14_P100,self.cbM14_M100,
+                       self.cbM15_P48,	self.cbM15_P100,self.cbM15_M100,
+                       self.cbM16_P48,	self.cbM16_P100,self.cbM16_M100,
+                       self.cbM17_P48,	self.cbM17_P100,self.cbM17_M100,
+                       self.cbM18_P48,	self.cbM18_P100,self.cbM18_M100,
+                       self.cbM19_P48,	self.cbM19_P100,self.cbM19_M100
+                       ]
+
+        for cb in combo_boxes:
+            cb.addItem("")  # Default empty item
+            cb.addItems(mineral_options)
+
         self.retranslateUi(MainWindow)
-        self.tabMineral.setCurrentIndex(2)
+        self.tabMineral.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

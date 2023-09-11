@@ -37,6 +37,63 @@ class MainWindow (QMainWindow):
         self.ui.txtBrtP48.textChanged.connect(self.enablingScrollP48)
         self.ui.txtBrtP100.textChanged.connect(self.enablingScrollP100)
         self.ui.txtBrtM100.textChanged.connect(self.enablingScrollM100)
+        self.ui.cbM1_P48.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM2_P48.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM3_P48.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM4_P48.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM5_P48.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM6_P48.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM7_P48.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM8_P48.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM9_P48.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM10_P48.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM11_P48.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM12_P48.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM13_P48.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM14_P48.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM15_P48.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM16_P48.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM17_P48.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM18_P48.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM19_P48.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM1_P100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM2_P100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM3_P100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM4_P100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM5_P100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM6_P100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM7_P100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM8_P100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM9_P100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM10_P100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM11_P100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM12_P100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM13_P100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM14_P100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM15_P100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM16_P100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM17_P100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM18_P100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM19_P100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM1_M100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM2_M100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM3_M100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM4_M100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM5_M100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM6_M100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM7_M100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM8_M100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM9_M100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM10_M100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM11_M100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM12_M100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM13_M100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM14_M100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM15_M100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM16_M100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM17_M100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM18_M100.currentTextChanged.connect(self.toggleLineEdit)
+        self.ui.cbM19_M100.currentTextChanged.connect(self.toggleLineEdit)
 
 
     def setup_initial_records(self):
@@ -63,8 +120,74 @@ class MainWindow (QMainWindow):
         self.current_record_index = 0
         self.load_record(self.current_record_index)
 
+        # Nonaktifkan objek teks awal
+        self.ui.txtBrtP48.setEnabled(False)
+        self.ui.txtBrtP100.setEnabled(False)
+        self.ui.txtBrtM100.setEnabled(False)
 
-        # Create a connection to the local SQL Server database
+        self.ui.rbInternal.setChecked(True)
+
+        self.ui.leM01_P48.setEnabled(False)
+        self.ui.leM02_P48.setEnabled(False)
+        self.ui.leM03_P48.setEnabled(False)
+        self.ui.leM04_P48.setEnabled(False)
+        self.ui.leM05_P48.setEnabled(False)
+        self.ui.leM06_P48.setEnabled(False)
+        self.ui.leM07_P48.setEnabled(False)
+        self.ui.leM08_P48.setEnabled(False)
+        self.ui.leM09_P48.setEnabled(False)
+        self.ui.leM10_P48.setEnabled(False)
+        self.ui.leM11_P48.setEnabled(False)
+        self.ui.leM12_P48.setEnabled(False)
+        self.ui.leM13_P48.setEnabled(False)
+        self.ui.leM14_P48.setEnabled(False)
+        self.ui.leM15_P48.setEnabled(False)
+        self.ui.leM16_P48.setEnabled(False)
+        self.ui.leM17_P48.setEnabled(False)
+        self.ui.leM18_P48.setEnabled(False)
+        self.ui.leM19_P48.setEnabled(False)
+        self.ui.leM01_P100.setEnabled(False)
+        self.ui.leM02_P100.setEnabled(False)
+        self.ui.leM03_P100.setEnabled(False)
+        self.ui.leM04_P100.setEnabled(False)
+        self.ui.leM05_P100.setEnabled(False)
+        self.ui.leM06_P100.setEnabled(False)
+        self.ui.leM07_P100.setEnabled(False)
+        self.ui.leM08_P100.setEnabled(False)
+        self.ui.leM09_P100.setEnabled(False)
+        self.ui.leM10_P100.setEnabled(False)
+        self.ui.leM11_P100.setEnabled(False)
+        self.ui.leM12_P100.setEnabled(False)
+        self.ui.leM13_P100.setEnabled(False)
+        self.ui.leM14_P100.setEnabled(False)
+        self.ui.leM15_P100.setEnabled(False)
+        self.ui.leM16_P100.setEnabled(False)
+        self.ui.leM17_P100.setEnabled(False)
+        self.ui.leM18_P100.setEnabled(False)
+        self.ui.leM19_P100.setEnabled(False)
+        self.ui.leM01_M100.setEnabled(False)
+        self.ui.leM02_M100.setEnabled(False)
+        self.ui.leM03_M100.setEnabled(False)
+        self.ui.leM04_M100.setEnabled(False)
+        self.ui.leM05_M100.setEnabled(False)
+        self.ui.leM06_M100.setEnabled(False)
+        self.ui.leM07_M100.setEnabled(False)
+        self.ui.leM08_M100.setEnabled(False)
+        self.ui.leM09_M100.setEnabled(False)
+        self.ui.leM10_M100.setEnabled(False)
+        self.ui.leM11_M100.setEnabled(False)
+        self.ui.leM12_M100.setEnabled(False)
+        self.ui.leM13_M100.setEnabled(False)
+        self.ui.leM14_M100.setEnabled(False)
+        self.ui.leM15_M100.setEnabled(False)
+        self.ui.leM16_M100.setEnabled(False)
+        self.ui.leM17_M100.setEnabled(False)
+        self.ui.leM18_M100.setEnabled(False)
+        self.ui.leM19_M100.setEnabled(False)
+
+
+
+# Create a connection to the local SQL Server database
     def database_connection(self):
         server_name = 'HPZ6PKPEKSPL1\LOCALSQL'  # Change this to your SQL Server's hostname or IP
         database_name = 'GCA'  # Change this to your database name
@@ -132,12 +255,17 @@ class MainWindow (QMainWindow):
             self.ui.txtLok.clear()
             self.ui.txtAsal.clear()
 
+
     def filter_records(self):
         tgl_dari = self.ui.tglDari.date()
         tgl_sampai = self.ui.tglSampai.date()
 
         tgl_dari_datetime = datetime.datetime(tgl_dari.year(), tgl_dari.month(), tgl_dari.day())
         tgl_sampai_datetime = datetime.datetime(tgl_sampai.year(), tgl_sampai.month(), tgl_sampai.day())
+
+        self.ui.txtBrtP48.setEnabled(True)
+        self.ui.txtBrtP100.setEnabled(True)
+        self.ui.txtBrtM100.setEnabled(True)
 
         if tgl_dari_datetime > tgl_sampai_datetime:
             QMessageBox.critical(self.ui.centralwidget, "Error", "Tanggal Dari harus lebih awal dari Tanggal Sampai")
@@ -192,114 +320,314 @@ class MainWindow (QMainWindow):
     def format_date_time(date_time):
         return f"{date_time:%Y-%m-%d %H:%M:%S}"
 
-    def mineralValueP48(self):
-        mineral1 = self.ui.cbM1.currentText()
-        mineral2 = self.ui.cbM2.currentText()
-        mineral3 = self.ui.cbM3.currentText()
-        mineral4 = self.ui.cbM4.currentText()
-        mineral5 = self.ui.cbM5.currentText()
-        mineral6 = self.ui.cbM6.currentText()
-        mineral7 = self.ui.cbM7.currentText()
-        mineral8 = self.ui.cbM8.currentText()
-        mineral9 = self.ui.cbM9.currentText()
-        mineral10 = self.ui.cbM10.currentText()
-        mineral11 = self.ui.cbM11.currentText()
-        mineral12 = self.ui.cbM12.currentText()
-        mineral13 = self.ui.cbM13.currentText()
-        mineral14 = self.ui.cbM14.currentText()
-        mineral15 = self.ui.cbM15.currentText()
-        mineral16 = self.ui.cbM16.currentText()
-        mineral17 = self.ui.cbM17.currentText()
-        mineral18 = self.ui.cbM18.currentText()
-        mineral19 = self.ui.cbM19.currentText()
-        butir1 = self.ui.leM01.currentText()
-        butir2 = self.ui.leM02.currentText()
-        butir3 = self.ui.leM03.currentText()
-        butir4 = self.ui.leM04.currentText()
-        butir5 = self.ui.leM05.currentText()
-        butir6 = self.ui.leM06.currentText()
-        butir7 = self.ui.leM07.currentText()
-        butir8 = self.ui.leM08.currentText()
-        butir9 = self.ui.leM09.currentText()
-        butir10 = self.ui.leM10.currentText()
-        butir11 = self.ui.leM11.currentText()
-        butir12 = self.ui.leM12.currentText()
-        butir13 = self.ui.leM13.currentText()
-        butir14 = self.ui.leM14.currentText()
-        butir15 = self.ui.leM15.currentText()
-        butir16 = self.ui.leM16.currentText()
-        butir17 = self.ui.leM17.currentText()
-        butir18 = self.ui.leM18.currentText()
-        butir19 = self.ui.leM19.currentText()
+    def toggleLineEdit(self):
+        comboboxes = [
+            self.ui.cbM1_P48, self.ui.cbM2_P48, self.ui.cbM3_P48, self.ui.cbM4_P48,
+            self.ui.cbM5_P48, self.ui.cbM6_P48, self.ui.cbM7_P48, self.ui.cbM8_P48,
+            self.ui.cbM9_P48, self.ui.cbM10_P48, self.ui.cbM11_P48, self.ui.cbM12_P48,
+            self.ui.cbM13_P48, self.ui.cbM14_P48, self.ui.cbM15_P48, self.ui.cbM16_P48,
+            self.ui.cbM17_P48, self.ui.cbM18_P48, self.ui.cbM19_P48,self.ui.cbM1_P100, 
+            self.ui.cbM2_P100, self.ui.cbM3_P100, self.ui.cbM4_P100,
+            self.ui.cbM5_P100, self.ui.cbM6_P100, self.ui.cbM7_P100, self.ui.cbM8_P100,
+            self.ui.cbM9_P100, self.ui.cbM10_P100, self.ui.cbM11_P100, self.ui.cbM12_P100,
+            self.ui.cbM13_P100, self.ui.cbM14_P100, self.ui.cbM15_P100, self.ui.cbM16_P100,
+            self.ui.cbM17_P100, self.ui.cbM18_P100, self.ui.cbM19_P100,self.ui.cbM1_M100, 
+            self.ui.cbM2_M100, self.ui.cbM3_M100, self.ui.cbM4_M100,
+            self.ui.cbM5_M100, self.ui.cbM6_M100, self.ui.cbM7_M100, self.ui.cbM8_M100,
+            self.ui.cbM9_M100, self.ui.cbM10_M100, self.ui.cbM11_M100, self.ui.cbM12_M100,
+            self.ui.cbM13_M100, self.ui.cbM14_M100, self.ui.cbM15_M100, self.ui.cbM16_M100,
+            self.ui.cbM17_M100, self.ui.cbM18_M100, self.ui.cbM19_M100
+        ]
 
+        lineedits = [
+            self.ui.leM01_P48, self.ui.leM02_P48, self.ui.leM03_P48, self.ui.leM04_P48,
+            self.ui.leM05_P48, self.ui.leM06_P48, self.ui.leM07_P48, self.ui.leM08_P48,
+            self.ui.leM09_P48, self.ui.leM10_P48, self.ui.leM11_P48, self.ui.leM12_P48,
+            self.ui.leM13_P48, self.ui.leM14_P48, self.ui.leM15_P48, self.ui.leM16_P48,
+            self.ui.leM17_P48, self.ui.leM18_P48, self.ui.leM19_P48,
+            self.ui.leM01_P100, self.ui.leM02_P100, self.ui.leM03_P100, self.ui.leM04_P100,
+            self.ui.leM05_P100, self.ui.leM06_P100, self.ui.leM07_P100, self.ui.leM08_P100,
+            self.ui.leM09_P100, self.ui.leM10_P100, self.ui.leM11_P100, self.ui.leM12_P100,
+            self.ui.leM13_P100, self.ui.leM14_P100, self.ui.leM15_P100, self.ui.leM16_P100,
+            self.ui.leM17_P100, self.ui.leM18_P100, self.ui.leM19_P100,
+            self.ui.leM01_M100, self.ui.leM02_M100, self.ui.leM03_M100, self.ui.leM04_M100,
+            self.ui.leM05_M100, self.ui.leM06_M100, self.ui.leM07_M100, self.ui.leM08_M100,
+            self.ui.leM09_M100, self.ui.leM10_M100, self.ui.leM11_M100, self.ui.leM12_M100,
+            self.ui.leM13_M100, self.ui.leM14_M100, self.ui.leM15_M100, self.ui.leM16_M100,
+            self.ui.leM17_M100, self.ui.leM18_M100, self.ui.leM19_M100,
+        ]
+
+
+        for i, combobox in enumerate(comboboxes):
+            if not combobox.currentText():
+                lineedits[i].setEnabled(False)
+                lineedits[i].clear()
+            else:
+                lineedits[i].setEnabled(True)
+
+
+    def mineralValueP48(self):
+        mineral1P48 = self.ui.cbM1_P48.currentText()
+        mineral2P48 = self.ui.cbM2_P48.currentText()
+        mineral3P48 = self.ui.cbM3_P48.currentText()
+        mineral4P48 = self.ui.cbM4_P48.currentText()
+        mineral5P48 = self.ui.cbM5_P48.currentText()
+        mineral6P48 = self.ui.cbM6_P48.currentText()
+        mineral7P48 = self.ui.cbM7_P48.currentText()
+        mineral8P48 = self.ui.cbM8_P48.currentText()
+        mineral9P48 = self.ui.cbM9_P48.currentText()
+        mineral10P48 = self.ui.cbM10_P48.currentText()
+        mineral11P48 = self.ui.cbM11_P48.currentText()
+        mineral12P48 = self.ui.cbM12_P48.currentText()
+        mineral13P48 = self.ui.cbM13_P48.currentText()
+        mineral14P48 = self.ui.cbM14_P48.currentText()
+        mineral15P48 = self.ui.cbM15_P48.currentText()
+        mineral16P48 = self.ui.cbM16_P48.currentText()
+        mineral17P48 = self.ui.cbM17_P48.currentText()
+        mineral18P48 = self.ui.cbM18_P48.currentText()
+        mineral19P48 = self.ui.cbM19_P48.currentText()
+        butir1P48 = self.ui.leM01_P48.text()
+        butir2P48 = self.ui.leM02_P48.text()
+        butir3P48 = self.ui.leM03_P48.text()
+        butir4P48 = self.ui.leM04_P48.text()
+        butir5P48 = self.ui.leM05_P48.text()
+        butir6P48 = self.ui.leM06_P48.text()
+        butir7P48 = self.ui.leM07_P48.text()
+        butir8P48 = self.ui.leM08_P48.text()
+        butir9P48 = self.ui.leM09_P48.text()
+        butir10P48 = self.ui.leM10_P48.text()
+        butir11P48 = self.ui.leM11_P48.text()
+        butir12P48 = self.ui.leM12_P48.text()
+        butir13P48 = self.ui.leM13_P48.text()
+        butir14P48 = self.ui.leM14_P48.text()
+        butir15P48 = self.ui.leM15_P48.text()
+        butir16P48 = self.ui.leM16_P48.text()
+        butir17P48 = self.ui.leM17_P48.text()
+        butir18P48 = self.ui.leM18_P48.text()
+        butir19P48 = self.ui.leM19_P48.text()
+
+        return (
+            mineral1P48 ,mineral2P48 ,mineral3P48 ,
+            mineral4P48 ,mineral5P48 ,mineral6P48 ,
+            mineral7P48 ,mineral8P48 ,mineral9P48 ,
+            mineral10P48 ,mineral11P48 ,mineral12P48 ,
+            mineral13P48 ,mineral14P48 ,mineral15P48 ,
+            mineral16P48 ,mineral17P48 ,mineral18P48 ,
+            mineral19P48 ,
+            butir1P48 ,butir2P48 ,butir3P48 ,
+            butir4P48 ,butir5P48 ,butir6P48 ,
+            butir7P48 ,butir8P48 ,butir9P48 ,
+            butir10P48 ,butir11P48 ,butir12P48 ,
+            butir13P48 ,butir14P48 ,butir15P48 ,
+            butir16P48 ,butir17P48 ,butir18P48 ,
+            butir19P48
+        )
+    def mineralValueP100(self):
+        mineral1P100 = self.ui.cbM1_P100.currentText()
+        mineral2P100 = self.ui.cbM2_P100.currentText()
+        mineral3P100 = self.ui.cbM3_P100.currentText()
+        mineral4P100 = self.ui.cbM4_P100.currentText()
+        mineral5P100 = self.ui.cbM5_P100.currentText()
+        mineral6P100 = self.ui.cbM6_P100.currentText()
+        mineral7P100 = self.ui.cbM7_P100.currentText()
+        mineral8P100 = self.ui.cbM8_P100.currentText()
+        mineral9P100 = self.ui.cbM9_P100.currentText()
+        mineral10P100 = self.ui.cbM10_P100.currentText()
+        mineral11P100 = self.ui.cbM11_P100.currentText()
+        mineral12P100 = self.ui.cbM12_P100.currentText()
+        mineral13P100 = self.ui.cbM13_P100.currentText()
+        mineral14P100 = self.ui.cbM14_P100.currentText()
+        mineral15P100 = self.ui.cbM15_P100.currentText()
+        mineral16P100 = self.ui.cbM16_P100.currentText()
+        mineral17P100 = self.ui.cbM17_P100.currentText()
+        mineral18P100 = self.ui.cbM18_P100.currentText()
+        mineral19P100 = self.ui.cbM19_P100.currentText()
+        butir1P100 = self.ui.leM01_P100.text()
+        butir2P100 = self.ui.leM02_P100.text()
+        butir3P100 = self.ui.leM03_P100.text()
+        butir4P100 = self.ui.leM04_P100.text()
+        butir5P100 = self.ui.leM05_P100.text()
+        butir6P100 = self.ui.leM06_P100.text()
+        butir7P100 = self.ui.leM07_P100.text()
+        butir8P100 = self.ui.leM08_P100.text()
+        butir9P100 = self.ui.leM09_P100.text()
+        butir10P100 = self.ui.leM10_P100.text()
+        butir11P100 = self.ui.leM11_P100.text()
+        butir12P100 = self.ui.leM12_P100.text()
+        butir13P100 = self.ui.leM13_P100.text()
+        butir14P100 = self.ui.leM14_P100.text()
+        butir15P100 = self.ui.leM15_P100.text()
+        butir16P100 = self.ui.leM16_P100.text()
+        butir17P100 = self.ui.leM17_P100.text()
+        butir18P100 = self.ui.leM18_P100.text()
+        butir19P100 = self.ui.leM19_P100.text()
+
+        return (
+            mineral1P100 ,mineral2P100 ,mineral3P100 ,
+            mineral4P100 ,mineral5P100 ,mineral6P100 ,
+            mineral7P100 ,mineral8P100 ,mineral9P100 ,
+            mineral10P100 ,mineral11P100 ,mineral12P100 ,
+            mineral13P100 ,mineral14P100 ,mineral15P100 ,
+            mineral16P100 ,mineral17P100 ,mineral18P100 ,
+            mineral19P100 ,
+            butir1P100 ,butir2P100 ,butir3P100 ,
+            butir4P100 ,butir5P100 ,butir6P100 ,
+            butir7P100 ,butir8P100 ,butir9P100 ,
+            butir10P100 ,butir11P100 ,butir12P100 ,
+            butir13P100 ,butir14P100 ,butir15P100 ,
+            butir16P100 ,butir17P100 ,butir18P100 ,
+            butir19P100
+        )
+
+    def mineralValueM100(self):
+        mineral1M100 = self.ui.cbM1_M100.currentText()
+        mineral2M100 = self.ui.cbM2_M100.currentText()
+        mineral3M100 = self.ui.cbM3_M100.currentText()
+        mineral4M100 = self.ui.cbM4_M100.currentText()
+        mineral5M100 = self.ui.cbM5_M100.currentText()
+        mineral6M100 = self.ui.cbM6_M100.currentText()
+        mineral7M100 = self.ui.cbM7_M100.currentText()
+        mineral8M100 = self.ui.cbM8_M100.currentText()
+        mineral9M100 = self.ui.cbM9_M100.currentText()
+        mineral10M100 = self.ui.cbM10_M100.currentText()
+        mineral11M100 = self.ui.cbM11_M100.currentText()
+        mineral12M100 = self.ui.cbM12_M100.currentText()
+        mineral13M100 = self.ui.cbM13_M100.currentText()
+        mineral14M100 = self.ui.cbM14_M100.currentText()
+        mineral15M100 = self.ui.cbM15_M100.currentText()
+        mineral16M100 = self.ui.cbM16_M100.currentText()
+        mineral17M100 = self.ui.cbM17_M100.currentText()
+        mineral18M100 = self.ui.cbM18_M100.currentText()
+        mineral19M100 = self.ui.cbM19_M100.currentText()
+        butir1M100 = self.ui.leM01_M100.text()
+        butir2M100 = self.ui.leM02_M100.text()
+        butir3M100 = self.ui.leM03_M100.text()
+        butir4M100 = self.ui.leM04_M100.text()
+        butir5M100 = self.ui.leM05_M100.text()
+        butir6M100 = self.ui.leM06_M100.text()
+        butir7M100 = self.ui.leM07_M100.text()
+        butir8M100 = self.ui.leM08_M100.text()
+        butir9M100 = self.ui.leM09_M100.text()
+        butir10M100 = self.ui.leM10_M100.text()
+        butir11M100 = self.ui.leM11_M100.text()
+        butir12M100 = self.ui.leM12_M100.text()
+        butir13M100 = self.ui.leM13_M100.text()
+        butir14M100 = self.ui.leM14_M100.text()
+        butir15M100 = self.ui.leM15_M100.text()
+        butir16M100 = self.ui.leM16_M100.text()
+        butir17M100 = self.ui.leM17_M100.text()
+        butir18M100 = self.ui.leM18_M100.text()
+        butir19M100 = self.ui.leM19_M100.text()
+
+        return (
+            mineral1M100 ,mineral2M100 ,mineral3M100 ,
+            mineral4M100 ,mineral5M100 ,mineral6M100 ,
+            mineral7M100 ,mineral8M100 ,mineral9M100 ,
+            mineral10M100 ,mineral11M100 ,mineral12M100 ,
+            mineral13M100 ,mineral14M100 ,mineral15M100 ,
+            mineral16M100 ,mineral17M100 ,mineral18M100 ,
+            mineral19M100 ,
+            butir1M100 ,butir2M100 ,butir3M100 ,
+            butir4M100 ,butir5M100 ,butir6M100 ,
+            butir7M100 ,butir8M100 ,butir9M100 ,
+            butir10M100 ,butir11M100 ,butir12M100 ,
+            butir13M100 ,butir14M100 ,butir15M100 ,
+            butir16M100 ,butir17M100 ,butir18M100 ,
+            butir19M100
+        )
 
     def printToConsole(self):
-        mineral1 = self.ui.cbM1.currentText()
-        mineral2 = self.ui.cbM2.currentText()
-        asal = self.ui.txtAsal.text()
-        siteid = self.ui.txtSiteID.text()
-        btrM1 = self.ui.leM01.text()
-        btrM2 = self.ui.leM02.text()
-        lapis = self.ui.txtLapis.text()
-        date_inserted = self.format_date_time(datetime())
+        date_inserted = datetime.date.today()
+        print(date_inserted)
+
+        # Mengambil nilai dari fungsi mineralValueP48
+        mineral1P48, mineral2P48, mineral3P48, mineral4P48, mineral5P48, \
+        mineral6P48, mineral7P48, mineral8P48, mineral9P48, mineral10P48, \
+        mineral11P48, mineral12P48, mineral13P48, mineral14P48, mineral15P48, \
+        mineral16P48, mineral17P48, mineral18P48, mineral19P48, \
+        butir1P48, butir2P48, butir3P48, butir4P48, butir5P48, \
+        butir6P48, butir7P48, butir8P48, butir9P48, butir10P48, \
+        butir11P48, butir12P48, butir13P48, butir14P48, butir15P48, \
+        butir16P48, butir17P48, butir18P48, butir19P48 = self.mineralValueP48()
+
+        # Mengambil nilai dari fungsi mineralValueP48
+        mineral1P100, mineral2P100, mineral3P100, mineral4P100, mineral5P100, \
+        mineral6P100, mineral7P100, mineral8P100, mineral9P100, mineral10P100, \
+        mineral11P100, mineral12P100, mineral13P100, mineral14P100, mineral15P100, \
+        mineral16P100, mineral17P100, mineral18P100, mineral19P100, \
+        butir1P100, butir2P100, butir3P100, butir4P100, butir5P100, \
+        butir6P100, butir7P100, butir8P100, butir9P100, butir10P100, \
+        butir11P100, butir12P100, butir13P100, butir14P100, butir15P100, \
+        butir16P100, butir17P100, butir18P100, butir19P100 = self.mineralValueP100()
+
+        mineral1M100, mineral2M100, mineral3M100, mineral4M100, mineral5M100, \
+        mineral6M100, mineral7M100, mineral8M100, mineral9M100, mineral10M100, \
+        mineral11M100, mineral12M100, mineral13M100, mineral14M100, mineral15M100, \
+        mineral16M100, mineral17M100, mineral18M100, mineral19M100, \
+        butir1M100, butir2M100, butir3M100, butir4M100, butir5M100, \
+        butir6M100, butir7M100, butir8M100, butir9M100, butir10M100, \
+        butir11M100, butir12M100, butir13M100, butir14M100, butir15M100, \
+        butir16M100, butir17M100, butir18M100, butir19M100 = self.mineralValueM100()
 
 
-        warna_values = self.warnacass()
-        kecokelatan,cokelat_kemerahan,cokelat_kehitaman,cokelat_kekuningan = warna_values
-        if kecokelatan:
-            print("Kecokelatan")
-        if cokelat_kemerahan:
-            print("Cokelat Kemerahan")
-        if cokelat_kehitaman:
-            print("Cokelat Kehitaman")
-        if cokelat_kekuningan:
-            print("Cokelat Kekuningan")
+        if any([mineral1P48, mineral2P48, mineral3P48, mineral4P48, mineral5P48,
+                mineral6P48, mineral7P48, mineral8P48, mineral9P48, mineral10P48,
+                mineral11P48, mineral12P48, mineral13P48, mineral14P48, mineral15P48,
+                mineral16P48, mineral17P48, mineral18P48, mineral19P48,
+                butir1P48, butir2P48, butir3P48, butir4P48, butir5P48,
+                butir6P48, butir7P48, butir8P48, butir9P48, butir10P48,
+                butir11P48, butir12P48, butir13P48, butir14P48, butir15P48,
+                butir16P48, butir17P48, butir18P48, butir19P48,
+                mineral1P100, mineral2P100, mineral3P100, mineral4P100, mineral5P100,
+                mineral6P100, mineral7P100, mineral8P100, mineral9P100, mineral10P100,
+                mineral11P100, mineral12P100, mineral13P100, mineral14P100, mineral15P100,
+                mineral16P100, mineral17P100, mineral18P100, mineral19P100,
+                butir1P100, butir2P100, butir3P100, butir4P100, butir5P100,
+                butir6P100, butir7P100, butir8P100, butir9P100, butir10P100,
+                butir11P100, butir12P100, butir13P100, butir14P100, butir15P100,
+                butir16P100, butir17P100, butir18P100, butir19P100,
+                mineral1M100, mineral2M100, mineral3M100, mineral4M100, mineral5M100,
+                mineral6M100, mineral7M100, mineral8M100, mineral9M100, mineral10M100,
+                mineral11M100, mineral12M100, mineral13M100, mineral14M100, mineral15M100,
+                mineral16M100, mineral17M100, mineral18M100, mineral19M100,
+                butir1M100, butir2M100, butir3M100, butir4M100, butir5M100,
+                butir6M100, butir7M100, butir8M100, butir9M100, butir10M100,
+                butir11M100, butir12M100, butir13M100, butir14M100, butir15M100,
+                butir16M100, butir17M100, butir18M100, butir19M100]):
+            # Jika nilai-nilai terisi, cetak ke konsol
+            print("Mineral Values P48:")
+            print(mineral1P48, mineral2P48, mineral3P48, mineral4P48, mineral5P48,
+                  mineral6P48, mineral7P48, mineral8P48, mineral9P48, mineral10P48,
+                  mineral11P48, mineral12P48, mineral13P48, mineral14P48, mineral15P48,
+                  mineral16P48, mineral17P48, mineral18P48, mineral19P48)
+            print("Butir Values P48:")
+            print(butir1P48, butir2P48, butir3P48, butir4P48, butir5P48,
+                  butir6P48, butir7P48, butir8P48, butir9P48, butir10P48,
+                  butir11P48, butir12P48, butir13P48, butir14P48, butir15P48,
+                  butir16P48, butir17P48, butir18P48, butir19P48)
 
+            print("Mineral Values P100:")
+            print(mineral1P100, mineral2P100, mineral3P100, mineral4P100, mineral5P100,
+                  mineral6P100, mineral7P100, mineral8P100, mineral9P100, mineral10P100,
+                  mineral11P100, mineral12P100, mineral13P100, mineral14P100, mineral15P100,
+                  mineral16P100, mineral17P100, mineral18P100, mineral19P100)
+            print("Butir Values P100:")
+            print(butir1P100, butir2P100, butir3P100, butir4P100, butir5P100,
+                  butir6P100, butir7P100, butir8P100, butir9P100, butir10P100,
+                  butir11P100, butir12P100, butir13P100, butir14P100, butir15P100,
+                  butir16P100, butir17P100, butir18P100, butir19P100)
 
-        checkboxes = [
-            ("Angular", self.ui.cbA.isChecked()),
-            ("Sub Angular", self.ui.cbSA.isChecked()),
-            ("Rounded", self.ui.cbR.isChecked()),
-            ("Well Rounded", self.ui.cbWR.isChecked()),
-            ("Sub Rounded", self.ui.cbSR.isChecked()),
-            ("Sub Angular - Sub Rounded", self.ui.cbSASR.isChecked())
-        ]
-        for label, checked in checkboxes:
-            if checked:
-                print(f"Checkbox '{label}' terpilih.")
+            print("Mineral Values M100:")
+            print( mineral1M100, mineral2M100, mineral3M100, mineral4M100, mineral5M100,
+                   mineral6M100, mineral7M100, mineral8M100, mineral9M100, mineral10M100,
+                   mineral11M100, mineral12M100, mineral13M100, mineral14M100, mineral15M100,
+                   mineral16M100, mineral17M100, mineral18M100, mineral19M100)
+            print("Butir Values M100:")
+            print(butir1M100, butir2M100, butir3M100, butir4M100, butir5M100,
+                  butir6M100, butir7M100, butir8M100, butir9M100, butir10M100,
+                  butir11M100, butir12M100, butir13M100, butir14M100, butir15M100,
+                  butir16M100, butir17M100, butir18M100, butir19M100)
 
-        print("Mineral 1:", mineral1)
-        print("Mineral 2:", mineral2)
-        print("Asal:", asal)
-        print("Sample ID:", siteid)
-        print("Jumlah Butir Mineral 1:", btrM1)
-
-        confirm_dialog = QMessageBox()
-        confirm_dialog.setIcon(QMessageBox.Icon.Question)
-        confirm_dialog.setWindowTitle("Konfirmasi")
-        confirm_dialog.setText("Apakah Anda yakin ingin melanjutkan?")
-        confirm_dialog.setStandardButtons(QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No)
-        confirm_dialog.setDefaultButton(QMessageBox.StandardButton.No)
-
-        result = confirm_dialog.exec()
-
-        if result == QMessageBox.StandardButton.Yes:
-            # Lanjutkan dengan tindakan setelah konfirmasi
-            sample_id = f"{siteid}-{lapis}"  # Gabungkan SITE_ID dan lapis di sini
-
-            query = (
-                f"INSERT INTO GB_GCA_RESULT (PROJECT, SITE_ID, SAMPLE_ID, LAB_ID, MINERAL, PLUS_48_GRAIN, DATE_INSERTED) "
-                f"VALUES ('TIMAH', ?, ?, 'INTERNAL', ?, ?)"
-            )
-
-            try:
-                self.db_cursor.execute(query, (siteid, sample_id, mineral1, btrM1))
-                self.db_connection.commit()
-                print("Data berhasil dimasukkan ke dalam tabel GB_GCA_RESULT.")
-            except Exception as e:
-                print("Error saat memasukkan data:", e)
-        else:
-            print("Tindakan dibatalkan.")
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

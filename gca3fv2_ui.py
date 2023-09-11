@@ -364,7 +364,6 @@ class Ui_MainWindow(object):
         ]
         combo_boxes = [self.cbM1, self.cbM2, self.cbM3, self.cbM4, self.cbM5, self.cbM6, self.cbM7, self.cbM8, self.cbM9, self.cbM10, self.cbM11, self.cbM12, self.cbM13, self.cbM14, self.cbM15, self.cbM16, self.cbM17, self.cbM18, self.cbM19]
 
-
         for cb in combo_boxes:
             cb.addItem("")  # Default empty item
             cb.addItems(mineral_options)
