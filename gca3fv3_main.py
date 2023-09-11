@@ -15,6 +15,7 @@ class MainWindow (QMainWindow):
         self.current_record_index = None
         self.db_cursor = None
         self.db_connection = None
+        self.sample_id = None
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.database_connection()
@@ -241,6 +242,7 @@ class MainWindow (QMainWindow):
 
             if 0 <= index < len(records):
                 record = records[index]
+                self.sample_id = str(record[2])
                 self.ui.txtSiteID.setText(str(record[1]))
                 self.ui.txtLapis.setText(str(record[4]))
                 self.ui.txtBrtTbg.setText(str(record[10]))
@@ -541,11 +543,15 @@ class MainWindow (QMainWindow):
         project = "TIMAH"
         site_id  = self.ui.txtSiteID.text()
         lapis = self.ui.txtLapis.text()
-        sample_id = site_id+lapis
-        lab_id = [
+        sample_id = self.sample_id
+        labId = [
             ("Internal",self.ui.rbInternal.isChecked()),
             ("Eksternal",self.ui.rbEksternal.isChecked())
         ]
+        for lab, checked in labId:
+            if checked:
+                lab_id = lab
+
         # Mengambil nilai dari fungsi mineralValueP48
         mineral1P48, mineral2P48, mineral3P48, mineral4P48, mineral5P48, \
         mineral6P48, mineral7P48, mineral8P48, mineral9P48, mineral10P48, \
