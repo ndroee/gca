@@ -263,10 +263,6 @@ class MainWindow (QMainWindow):
         tgl_dari_datetime = datetime.datetime(tgl_dari.year(), tgl_dari.month(), tgl_dari.day())
         tgl_sampai_datetime = datetime.datetime(tgl_sampai.year(), tgl_sampai.month(), tgl_sampai.day())
 
-        self.ui.txtBrtP48.setEnabled(True)
-        self.ui.txtBrtP100.setEnabled(True)
-        self.ui.txtBrtM100.setEnabled(True)
-
         if tgl_dari_datetime > tgl_sampai_datetime:
             QMessageBox.critical(self.ui.centralwidget, "Error", "Tanggal Dari harus lebih awal dari Tanggal Sampai")
             return
@@ -279,6 +275,9 @@ class MainWindow (QMainWindow):
             self.current_record_index = 0
             self.records = records
             self.load_record(self.current_record_index)
+            self.ui.txtBrtP48.setEnabled(True)
+            self.ui.txtBrtP100.setEnabled(True)
+            self.ui.txtBrtM100.setEnabled(True)
         else:
             QMessageBox.information(self.ui.centralwidget, "Info", "Tidak ada data yang cocok dengan filter tanggal")
 
@@ -539,7 +538,14 @@ class MainWindow (QMainWindow):
     def printToConsole(self):
         date_inserted = datetime.date.today()
         print(date_inserted)
-
+        project = "TIMAH"
+        site_id  = self.ui.txtSiteID.text()
+        lapis = self.ui.txtLapis.text()
+        sample_id = site_id+lapis
+        lab_id = [
+            ("Internal",self.ui.rbInternal.isChecked()),
+            ("Eksternal",self.ui.rbEksternal.isChecked())
+        ]
         # Mengambil nilai dari fungsi mineralValueP48
         mineral1P48, mineral2P48, mineral3P48, mineral4P48, mineral5P48, \
         mineral6P48, mineral7P48, mineral8P48, mineral9P48, mineral10P48, \
@@ -627,7 +633,7 @@ class MainWindow (QMainWindow):
                   butir6M100, butir7M100, butir8M100, butir9M100, butir10M100,
                   butir11M100, butir12M100, butir13M100, butir14M100, butir15M100,
                   butir16M100, butir17M100, butir18M100, butir19M100)
-
+        print(f"INSERT INTO GB_GCA_RESULT (PROJECT,SITE_ID,SAMPLE_ID,LAB_ID,MINERAL,PLUS_48_GRAIN,PLUS_100_GRAIN,MINUS_100_GRAIN) VALUES ({project},{site_id},{sample_id},{lab_id},{mineral1P48},{butir1P48},{butir1P100},{butir1M100}")
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
