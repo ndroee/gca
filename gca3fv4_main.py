@@ -469,96 +469,27 @@ class MainWindow (QMainWindow):
         lapis = self.ui.txtLapis.text()
         sample_id = self.sample_id
         lab_id = self.lab_id
+        # Fungsi untuk mencetak nilai mineral dan butir
+        def print_mineral_butir(values, prefix):
+            num_minerals = 19
+            for i in range(1, num_minerals + 1):
+                mineral_var = values[i - 1]
+                butir_var = values[i + num_minerals - 1]
+                if mineral_var or butir_var:
+                    print(f"{prefix}-{i}: {mineral_var} - butir{i}: {butir_var}")
 
+        # Cetak nilai dari mineralValueP48
+        valuesP48 = self.mineralValueP48()
+        print_mineral_butir(valuesP48, "mineralP48")
 
-        # Mengambil nilai dari fungsi mineralValueP48
-        mineral1P48, mineral2P48, mineral3P48, mineral4P48, mineral5P48, \
-            mineral6P48, mineral7P48, mineral8P48, mineral9P48, mineral10P48, \
-            mineral11P48, mineral12P48, mineral13P48, mineral14P48, mineral15P48, \
-            mineral16P48, mineral17P48, mineral18P48, mineral19P48, \
-            butir1P48, butir2P48, butir3P48, butir4P48, butir5P48, \
-            butir6P48, butir7P48, butir8P48, butir9P48, butir10P48, \
-            butir11P48, butir12P48, butir13P48, butir14P48, butir15P48, \
-            butir16P48, butir17P48, butir18P48, butir19P48 = self.mineralValueP48()
+        # Cetak nilai dari mineralValueP100
+        valuesP100 = self.mineralValueP100()
+        print_mineral_butir(valuesP100, "mineralP100")
 
-        # Mengambil nilai dari fungsi mineralValueP48
-        mineral1P100, mineral2P100, mineral3P100, mineral4P100, mineral5P100, \
-            mineral6P100, mineral7P100, mineral8P100, mineral9P100, mineral10P100, \
-            mineral11P100, mineral12P100, mineral13P100, mineral14P100, mineral15P100, \
-            mineral16P100, mineral17P100, mineral18P100, mineral19P100, \
-            butir1P100, butir2P100, butir3P100, butir4P100, butir5P100, \
-            butir6P100, butir7P100, butir8P100, butir9P100, butir10P100, \
-            butir11P100, butir12P100, butir13P100, butir14P100, butir15P100, \
-            butir16P100, butir17P100, butir18P100, butir19P100 = self.mineralValueP100()
+        # Cetak nilai dari mineralValueM100
+        valuesM100 = self.mineralValueM100()
+        print_mineral_butir(valuesM100, "mineralM100")
 
-        mineral1M100, mineral2M100, mineral3M100, mineral4M100, mineral5M100, \
-            mineral6M100, mineral7M100, mineral8M100, mineral9M100, mineral10M100, \
-            mineral11M100, mineral12M100, mineral13M100, mineral14M100, mineral15M100, \
-            mineral16M100, mineral17M100, mineral18M100, mineral19M100, \
-            butir1M100, butir2M100, butir3M100, butir4M100, butir5M100, \
-            butir6M100, butir7M100, butir8M100, butir9M100, butir10M100, \
-            butir11M100, butir12M100, butir13M100, butir14M100, butir15M100, \
-            butir16M100, butir17M100, butir18M100, butir19M100 = self.mineralValueM100()
-
-
-        if any([mineral1P48, mineral2P48, mineral3P48, mineral4P48, mineral5P48,
-                mineral6P48, mineral7P48, mineral8P48, mineral9P48, mineral10P48,
-                mineral11P48, mineral12P48, mineral13P48, mineral14P48, mineral15P48,
-                mineral16P48, mineral17P48, mineral18P48, mineral19P48,
-                butir1P48, butir2P48, butir3P48, butir4P48, butir5P48,
-                butir6P48, butir7P48, butir8P48, butir9P48, butir10P48,
-                butir11P48, butir12P48, butir13P48, butir14P48, butir15P48,
-                butir16P48, butir17P48, butir18P48, butir19P48,
-                mineral1P100, mineral2P100, mineral3P100, mineral4P100, mineral5P100,
-                mineral6P100, mineral7P100, mineral8P100, mineral9P100, mineral10P100,
-                mineral11P100, mineral12P100, mineral13P100, mineral14P100, mineral15P100,
-                mineral16P100, mineral17P100, mineral18P100, mineral19P100,
-                butir1P100, butir2P100, butir3P100, butir4P100, butir5P100,
-                butir6P100, butir7P100, butir8P100, butir9P100, butir10P100,
-                butir11P100, butir12P100, butir13P100, butir14P100, butir15P100,
-                butir16P100, butir17P100, butir18P100, butir19P100,
-                mineral1M100, mineral2M100, mineral3M100, mineral4M100, mineral5M100,
-                mineral6M100, mineral7M100, mineral8M100, mineral9M100, mineral10M100,
-                mineral11M100, mineral12M100, mineral13M100, mineral14M100, mineral15M100,
-                mineral16M100, mineral17M100, mineral18M100, mineral19M100,
-                butir1M100, butir2M100, butir3M100, butir4M100, butir5M100,
-                butir6M100, butir7M100, butir8M100, butir9M100, butir10M100,
-                butir11M100, butir12M100, butir13M100, butir14M100, butir15M100,
-                butir16M100, butir17M100, butir18M100, butir19M100]):
-            # Jika nilai-nilai terisi, cetak ke konsol
-            print("Mineral Values P48:")
-            print(mineral1P48, mineral2P48, mineral3P48, mineral4P48, mineral5P48,
-                  mineral6P48, mineral7P48, mineral8P48, mineral9P48, mineral10P48,
-                  mineral11P48, mineral12P48, mineral13P48, mineral14P48, mineral15P48,
-                  mineral16P48, mineral17P48, mineral18P48, mineral19P48)
-            print("Butir Values P48:")
-            print(butir1P48, butir2P48, butir3P48, butir4P48, butir5P48,
-                  butir6P48, butir7P48, butir8P48, butir9P48, butir10P48,
-                  butir11P48, butir12P48, butir13P48, butir14P48, butir15P48,
-                  butir16P48, butir17P48, butir18P48, butir19P48)
-
-            print("Mineral Values P100:")
-            print(mineral1P100, mineral2P100, mineral3P100, mineral4P100, mineral5P100,
-                  mineral6P100, mineral7P100, mineral8P100, mineral9P100, mineral10P100,
-                  mineral11P100, mineral12P100, mineral13P100, mineral14P100, mineral15P100,
-                  mineral16P100, mineral17P100, mineral18P100, mineral19P100)
-            print("Butir Values P100:")
-            print(butir1P100, butir2P100, butir3P100, butir4P100, butir5P100,
-                  butir6P100, butir7P100, butir8P100, butir9P100, butir10P100,
-                  butir11P100, butir12P100, butir13P100, butir14P100, butir15P100,
-                  butir16P100, butir17P100, butir18P100, butir19P100)
-
-            print("Mineral Values M100:")
-            print( mineral1M100, mineral2M100, mineral3M100, mineral4M100, mineral5M100,
-                   mineral6M100, mineral7M100, mineral8M100, mineral9M100, mineral10M100,
-                   mineral11M100, mineral12M100, mineral13M100, mineral14M100, mineral15M100,
-                   mineral16M100, mineral17M100, mineral18M100, mineral19M100)
-            print("Butir Values M100:")
-            print(butir1M100, butir2M100, butir3M100, butir4M100, butir5M100,
-                  butir6M100, butir7M100, butir8M100, butir9M100, butir10M100,
-                  butir11M100, butir12M100, butir13M100, butir14M100, butir15M100,
-                  butir16M100, butir17M100, butir18M100, butir19M100)
-        print(f"INSERT INTO GB_GCA_RESULT (PROJECT,SITE_ID,SAMPLE_ID,LAB_ID,MINERAL,PLUS_48_GRAIN,PLUS_100_GRAIN,MINUS_100_GRAIN) VALUES ('{project}','{site_id}','{sample_id}','{lab_id}','{mineral1P48}','{butir1P48}','{butir1P100}','{butir1M100}')")
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
